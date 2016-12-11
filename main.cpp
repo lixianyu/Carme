@@ -1,5 +1,5 @@
 #include "mbed.h"
-
+#include "Test.h"
 //PTD2->D2 : OK
 //PTA2->D1 : OK
 //PTA1->D0 : OK
@@ -14,7 +14,7 @@
 //PTC7 not work
 //PTC6->D11 : OK
 //PTC5->D13 : OK
-DigitalOut led1(PTA1);
+//DigitalOut led1(PTA1);
 
 // main() runs in its own thread in the OS
 // (note the calls to Thread::wait below for delays)
@@ -24,13 +24,15 @@ int main() {
         //led1 = !led1;
         if (flag == 0)
         {
-        	led1 = 0;
+        	//led1 = 0;
+        	test_copter(0);
         	flag = 1;
         	Thread::wait(3000);
         }
         else
         {
-        	led1 = 1;
+        	//led1 = 1;
+        	test_copter(1);
         	flag = 0;
         	Thread::wait(100);
         }
