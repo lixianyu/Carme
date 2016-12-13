@@ -16,8 +16,9 @@
 
 #include "RangeFinder.h"
 #include "RangeFinder_Backend.h"
+#if CONFIG_HAL_BOARD == HAL_BOARD_LINUX
 #include <AP_HAL_Linux/Thread.h>
-
+#endif
 /*
  * the size of the buffer sent over spi
  */
@@ -106,8 +107,9 @@ private:
     int _configure_capture();
     int _launch_purge();
     void _loop(void);
-
+#if CONFIG_HAL_BOARD == HAL_BOARD_LINUX
     Linux::Thread *_thread;
+#endif
     unsigned short get_threshold_at(int i_capture);
     int _apply_averaging_filter(void);
     int _search_local_maxima(void);

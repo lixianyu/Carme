@@ -5,7 +5,7 @@
                    "-fmessage-length=0", "-fno-exceptions", "-fno-builtin",
                    "-ffunction-sections", "-fdata-sections", "-funsigned-char",
                    "-MMD", "-fno-delete-null-pointer-checks",
-                   "-fomit-frame-pointer", "-Os", "-DNDEBUG", "-DCONFIG_HAL_BOARD=HAL_BOARD_MBED"],
+                   "-fomit-frame-pointer", "-Os", "-DNDEBUG", "-DCONFIG_HAL_BOARD=10"],
         "asm": ["-x", "assembler-with-cpp"],
         "c": ["-std=gnu99"],
         "cxx": ["-std=gnu++11", "-fno-rtti", "-Wvla"],

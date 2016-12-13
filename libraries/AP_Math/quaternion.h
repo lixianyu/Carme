@@ -21,7 +21,7 @@
 #if MATH_CHECK_INDEXES
 #include <assert.h>
 #endif
-#include <unity_internals.h>
+//#include <unity_internals.h>
 
 class Quaternion {
 public:
@@ -53,7 +53,7 @@ public:
     // check if any elements are NAN
     bool        is_nan(void) const
     {
-        return isnan(q1) || isnan(q2) || isnan(q3) || isnan(q4);
+        return std::isnan(q1) || std::isnan(q2) || std::isnan(q3) || std::isnan(q4);
     }
 
     // return the rotation matrix equivalent for this quaternion

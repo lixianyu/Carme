@@ -12,12 +12,11 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#if CONFIG_HAL_BOARD == HAL_BOARD_QURT
 #include "AP_Baro_QURT.h"
 
 #include <AP_Common/AP_Common.h>
 #include <AP_HAL/AP_HAL.h>
-
-#if CONFIG_HAL_BOARD == HAL_BOARD_QURT
 
 extern const AP_HAL::HAL &hal;
 

@@ -4,7 +4,7 @@
 
 #include <AP_HAL/AP_HAL.h>
 #include <AP_HAL/Semaphores.h>
-#include <AP_HAL/Device.h>
+#include <AP_HAL/DeviceAPM.h>
 
 class AP_Baro_MS56XX : public AP_Baro_Backend
 {

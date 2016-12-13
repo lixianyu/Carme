@@ -16,7 +16,7 @@
 /*
   support for external modules
  */
-
+#if AP_MODULE_SUPPORTED
 #include <stdio.h>
 #include <dirent.h>
 #if defined(HAVE_LIBDL)
@@ -278,3 +278,4 @@ void AP_Module::call_hook_accel_sample(uint8_t instance, float dt, const Vector3
     }
 #endif
 }
+#endif // AP_MODULE_SUPPORTED

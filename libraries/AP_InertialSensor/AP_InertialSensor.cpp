@@ -18,7 +18,9 @@
 #include "AP_InertialSensor_MPU9250.h"
 #include "AP_InertialSensor_PX4.h"
 #include "AP_InertialSensor_QURT.h"
+#if CONFIG_HAL_BOARD == HAL_BOARD_SITL
 #include "AP_InertialSensor_SITL.h"
+#endif
 #include "AP_InertialSensor_qflight.h"
 
 /* Define INS_TIMING_DEBUG to track down scheduling issues with the main loop.

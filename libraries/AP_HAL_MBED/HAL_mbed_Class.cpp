@@ -12,6 +12,7 @@ using namespace mbed_apm;
 static UARTDriver uartADriver;
 static UARTDriver uartBDriver;
 static UARTDriver uartCDriver;
+static I2CDeviceManager i2c_mgr_instance;
 static SPIDeviceManager spiDeviceManager;
 static AnalogIn analogIn;
 static Storage storageDriver;
@@ -30,6 +31,7 @@ HAL_mbed::HAL_mbed() :
         NULL,            /* no uartD */
         NULL,            /* no uartE */
         NULL,            /* no uartF */
+        &i2c_mgr_instance,
         &spiDeviceManager,
         &analogIn,
         &storageDriver,

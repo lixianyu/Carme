@@ -1,8 +1,7 @@
 #include <AP_HAL/AP_HAL.h>
+#if CONFIG_HAL_BOARD == HAL_BOARD_SITL
 #include "AP_InertialSensor_SITL.h"
 #include <SITL/SITL.h>
-
-#if CONFIG_HAL_BOARD == HAL_BOARD_SITL
 
 const extern AP_HAL::HAL& hal;
 

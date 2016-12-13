@@ -19,7 +19,7 @@
 #include <inttypes.h>
 
 #include "AP_HAL_Namespace.h"
-#include "Device.h"
+#include "DeviceAPM.h"
 #include "utility/OwnPtr.h"
 
 namespace AP_HAL {
