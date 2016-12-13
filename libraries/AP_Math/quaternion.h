@@ -21,6 +21,7 @@
 #if MATH_CHECK_INDEXES
 #include <assert.h>
 #endif
+#include <unity_internals.h>
 
 class Quaternion {
 public:

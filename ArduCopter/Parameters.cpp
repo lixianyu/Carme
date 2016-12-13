@@ -822,12 +822,12 @@ const AP_Param::Info Copter::var_info[] = {
     // @Group: FENCE_
     // @Path: ../libraries/AC_Fence/AC_Fence.cpp
     GOBJECT(fence,      "FENCE_",   AC_Fence),
-#endif
+
 
     // @Group: AVOID_
     // @Path: ../libraries/AC_Avoidance/AC_Avoid.cpp
     GOBJECT(avoid,      "AVOID_",   AC_Avoid),
-
+#endif
 #if AC_RALLY == ENABLED
     // @Group: RALLY_
     // @Path: AP_Rally.cpp,../libraries/AP_Rally/AP_Rally.cpp
@@ -1042,6 +1042,7 @@ const AP_Param::GroupInfo ParametersG2::var_info[] = {
 /*
   constructor for g2 object
  */
+#if PROXIMITY_ENABLED == ENABLED
 ParametersG2::ParametersG2(void)
     : proximity(copter.serial_manager)
 #if ADVANCED_FAILSAFE == ENABLED
@@ -1050,7 +1051,16 @@ ParametersG2::ParametersG2(void)
 {
     AP_Param::setup_object_defaults(this, var_info);
 }
-
+#else
+ParametersG2::ParametersG2(void)
+#if ADVANCED_FAILSAFE == ENABLED
+    :
+     afs(copter.mission, copter.barometer, copter.gps, copter.rcmap)
+#endif
+{
+    AP_Param::setup_object_defaults(this, var_info);
+}
+#endif
 /*
   This is a conversion table from old parameter values to new
   parameter names. The startup code looks for saved values of the old

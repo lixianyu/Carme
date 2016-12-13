@@ -607,6 +607,7 @@ void Copter::guided_angle_control_run()
 // helper function to update position controller's desired velocity while respecting acceleration limits
 void Copter::guided_set_desired_velocity_with_accel_and_fence_limits(const Vector3f& vel_des)
 {
+#if NAV_GUIDED == ENABLED
     // get current desired velocity
     Vector3f curr_vel_des = pos_control.get_desired_velocity();
 
@@ -637,6 +638,7 @@ void Copter::guided_set_desired_velocity_with_accel_and_fence_limits(const Vecto
 
     // update position controller with new target
     pos_control.set_desired_velocity(curr_vel_des);
+#endif
 }
 
 // Guided Limit code

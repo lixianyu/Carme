@@ -4,7 +4,7 @@
 #include <stdbool.h>
 
 // lxy added.
-#define CONFIG_HAL_BOARD HAL_BOARD_MBED
+//#define CONFIG_HAL_BOARD HAL_BOARD_MBED
 
 #include "AP_HAL_Namespace.h"
 #include "AP_HAL_Boards.h"

@@ -56,11 +56,11 @@ bool Copter::set_mode(control_mode_t mode, mode_reason_t reason)
         case LOITER:
             success = loiter_init(ignore_checks);
             break;
-
+#if NAV_GUIDED == ENABLED
         case GUIDED:
             success = guided_init(ignore_checks);
             break;
-
+#endif
         case LAND:
             success = land_init(ignore_checks);
             break;
@@ -192,11 +192,11 @@ void Copter::update_flight_mode()
         case LOITER:
             loiter_run();
             break;
-
+#if NAV_GUIDED == ENABLED
         case GUIDED:
             guided_run();
             break;
-
+#endif
         case LAND:
             land_run();
             break;

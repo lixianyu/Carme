@@ -1,6 +1,5 @@
 /// @file	AC_PI_2D.cpp
 /// @brief	Generic PID algorithm
-
 #include <AP_Math/AP_Math.h>
 #include "AC_PI_2D.h"
 
@@ -71,7 +70,7 @@ void AC_PI_2D::filt_hz(float hz)
 void AC_PI_2D::set_input(const Vector2f &input)
 {
     // don't process inf or NaN
-    if (!isfinite(input.x) || !isfinite(input.y)) {
+    if (!std::isfinite(input.x) || !std::isfinite(input.y)) {
         return;
     }
 

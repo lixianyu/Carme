@@ -12,8 +12,12 @@
 // initialise avoid_adsb controller
 bool Copter::avoid_adsb_init(const bool ignore_checks)
 {
+#if NAV_GUIDED == ENABLED
     // re-use guided mode
     return guided_init(ignore_checks);
+#else
+	return false;
+#endif
 }
 
 bool Copter::avoid_adsb_set_velocity(const Vector3f& velocity_neu)
