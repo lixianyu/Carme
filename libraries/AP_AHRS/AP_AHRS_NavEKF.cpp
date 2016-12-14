@@ -91,9 +91,10 @@ void AP_AHRS_NavEKF::update(void)
 #if CONFIG_HAL_BOARD == HAL_BOARD_SITL
     update_SITL();
 #endif
-
+#if AP_MODULE_SUPPORTED
     // call AHRS_update hook if any
     AP_Module::call_hook_AHRS_update(*this);
+#endif
 }
 
 void AP_AHRS_NavEKF::update_DCM(void)

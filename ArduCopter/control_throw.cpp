@@ -177,7 +177,7 @@ void Copter::throw_run()
 
         break;
     }
-
+#if LOGGING_ENABLED == ENABLED
     // log at 10hz or if stage changes
     uint32_t now = AP_HAL::millis();
     if ((throw_state.stage != throw_state.prev_stage) || (now - throw_state.last_log_ms) > 100) {
@@ -201,6 +201,7 @@ void Copter::throw_run()
                         height_ok,
                         pos_ok);
     }
+#endif
 }
 
 bool Copter::throw_detected()

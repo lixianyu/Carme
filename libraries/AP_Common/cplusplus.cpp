@@ -3,7 +3,7 @@
 //
 // Note: use new/delete with caution.  The heap is small and
 // easily fragmented.
-
+#if 0
 #include <AP_HAL/AP_HAL.h>
 #include <stdlib.h>
 
@@ -36,3 +36,4 @@ void operator delete[](void * ptr)
 {
     if (ptr) free(ptr);
 }
+#endif

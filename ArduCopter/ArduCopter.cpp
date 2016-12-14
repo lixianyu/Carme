@@ -117,7 +117,9 @@ const AP_Scheduler::Task Copter::scheduler_tasks[] = {
     SCHED_TASK(gcs_data_stream_send,  50,    550),
     SCHED_TASK(update_mount,          50,     75),
     SCHED_TASK(update_trigger,        50,     75),
+#if LOGGING_ENABLED == ENABLED
     SCHED_TASK(ten_hz_logging_loop,   10,    350),
+#endif
     SCHED_TASK(twentyfive_hz_logging, 25,    110),
     SCHED_TASK(dataflash_periodic,    400,    300),
     SCHED_TASK(perf_update,           0.1,    75),
@@ -360,6 +362,7 @@ void Copter::update_batt_compass(void)
     }
 }
 
+#if LOGGING_ENABLED == ENABLED
 // ten_hz_logging_loop
 // should be run at 10hz
 void Copter::ten_hz_logging_loop()
@@ -401,6 +404,7 @@ void Copter::ten_hz_logging_loop()
     Log_Write_Heli();
 #endif
 }
+#endif
 
 // twentyfive_hz_logging - should be run at 25hz
 void Copter::twentyfive_hz_logging()
@@ -553,10 +557,12 @@ void Copter::init_simple_bearing()
     super_simple_cos_yaw = simple_cos_yaw;
     super_simple_sin_yaw = simple_sin_yaw;
 
+#if LOGGING_ENABLED == ENABLED
     // log the simple bearing to dataflash
     if (should_log(MASK_LOG_ANY)) {
         Log_Write_Data(DATA_INIT_SIMPLE_BEARING, ahrs.yaw_sensor);
     }
+#endif
 }
 
 // update_simple_mode - rotates pilot input if we are in simple mode
